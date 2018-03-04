@@ -14,7 +14,7 @@
   color: white;
 }
 
-.App-title {
+.App-title {we
   font-size: 1.5em;
 }
 
@@ -43,6 +43,15 @@ input.box-input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.button {
+  cursor: pointer;
+  width: 80px;
+  display: inline-block;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 20px 5px;
 }
 
 @keyframes App-logo-spin {

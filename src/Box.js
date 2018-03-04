@@ -18,7 +18,8 @@ class Box extends Component {
   }
 
   handleChange(e) {
-    const value = e.currentTarget.value
+    let value = e.currentTarget.value
+    if(value.length > 1) value = value[0]
     console.log('1 - Box/onChange', value, this.props.index)
     this.props.onChange(value, this.props.index)
   }
@@ -31,20 +32,21 @@ class Box extends Component {
     // this.props.index.col, this.state.value)
 
     const inputProps = {
-      className: 'box-input',
-      type: 'number',
-      min: 1,
-      max: 9,
-      maxLength: 1,
-      value: this.props.value || '',
-      onChange: (e) => this.handleChange(e)
+
     }
 
     return (
       <div
         key={this.props.key}
         className="box-container">
-        <input {...inputProps} />
+        <input
+          className="box-input"
+          type="number"
+          min={1}
+          max={9}
+          maxLength="1"
+          value={this.props.value || ''}
+          onChange={(e) => this.handleChange(e)} />
       </div>
     )
   }

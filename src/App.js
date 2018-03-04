@@ -10,29 +10,51 @@ class App extends Component {
 
     this.state = {
       gameBoard: [
-        [0, 8, 0, 4, 0, 9, 0, 5, 0],
-        [0, 0, 0, 6, 0, 0, 2, 1, 4],
-        [5, 2, 0, 1, 0, 0, 9, 6, 0],
-        [1, 6, 0, 7, 3, 0, 0, 0, 2],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [9, 0, 0, 0, 4, 6, 0, 8, 7],
-        [0, 7, 5, 0, 0, 7, 0, 2, 6],
-        [8, 1, 7, 0, 0, 2, 0, 0, 0],
-        [0, 3, 0, 9, 0, 4, 0, 7, 0]
+        [8, 0, 0, 4, 0, 6, 0, 0, 7],
+        [0, 0, 0, 0, 0, 0, 4, 0, 0],
+        [0, 1, 0, 0, 0, 0, 6, 5, 0],
+        [5, 0, 9, 0, 3, 0, 7, 8, 0],
+        [0, 0, 0, 0, 7, 0, 0, 0, 0],
+        [0, 4, 8, 0, 2, 0, 1, 0, 3],
+        [0, 5, 2, 0, 0, 0, 0, 9, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [3, 0, 0, 9, 0, 2, 0, 0, 5]
       ]
     }
 
     this.handleUpdatedBoard = this.handleUpdatedBoard.bind(this)
+    this.resetGame = this.resetGame.bind(this)
+    this.validate = this.validate.bind(this)
   }
 
   handleUpdatedBoard(value, index) {
     console.log('3 - App/handleUpdatedBoard', value, index)
 
     const updatedBoard = this.state.gameBoard
-    updatedBoard[index.row][index.col] = parseInt(value)
+    updatedBoard[index.row][index.col] = parseInt(value, 10)
 
     console.log('3 - App/updatedBoard', updatedBoard)
     this.setState({ gameBoard: updatedBoard })
+  }
+
+  validate() {
+
+  }
+
+  resetGame() {
+    this.setState({
+      gameBoard: [
+        [8, 0, 0, 4, 0, 6, 0, 0, 7],
+        [0, 0, 0, 0, 0, 0, 4, 0, 0],
+        [0, 1, 0, 0, 0, 0, 6, 5, 0],
+        [5, 0, 9, 0, 3, 0, 7, 8, 0],
+        [0, 0, 0, 0, 7, 0, 0, 0, 0],
+        [0, 4, 8, 0, 2, 0, 1, 0, 3],
+        [0, 5, 2, 0, 0, 0, 0, 9, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [3, 0, 0, 9, 0, 2, 0, 0, 5]
+      ]
+    })
   }
 
   render() {
@@ -55,6 +77,9 @@ class App extends Component {
           <div className="game-board">
             <Board {...boardProps} />
           </div>
+
+          <div className="button" onClick={this.resetGame}>Reset</div>
+          <div className="button" onClick={this.validate}>Validate</div>
         </div>
       </div>
     );
