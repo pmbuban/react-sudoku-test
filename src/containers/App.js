@@ -99,6 +99,9 @@ class App extends Component {
     // - make use of allRowsValid & allColumnsValid in order to produce success message
     // - could not randomly generate a game board
 
+    console.log('allRowsValid', allRowsValid)
+    console.log('allColumnsValid', allColumnsValid)
+
     this.setState({
       errorRows: errorRowsIndex,
       errorCols: errorColsIndex
