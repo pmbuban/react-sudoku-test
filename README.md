@@ -3,7 +3,7 @@
 #### March 4, 2018
 #### Duration: 5 hours
 
-## Original task 
+## Original task
 
 ### Coding Challenge
 
@@ -22,10 +22,11 @@ If any part is taking an unreasonable amount of time, feel free to leave it unfi
 
 ## Installation
 - ensure that `node` and `npm` are installed
+- I used `node v9.6.1` & `npm 5.6.0`
 - navigate to the project folder and run `npm install`
 - after installation is complete run `npm start`
 - navigate your browser to `http://localhost:3000/`
-- the project is based off of the `create-react-app` repository developed by Facebook 
+- the project is based off of the `create-react-app` repository developed by Facebook
 
 ## How to play
 - default values are not editable

@@ -159,27 +159,28 @@ class App extends Component {
         </header>
 
         <p className="App-intro">
-
-          <div className="game-container">
-
-            <div className="game-board">
-              <Board {...boardProps} />
-            </div>
-
-            <div
-              className="button"
-              onClick={this.resetGame}>
-              Reset
-            </div>
-
-            <div
-              className="button"
-              onClick={this.validate}>
-              Validate
-            </div>
-
-          </div>
+          Sudoku game using create-react-app
         </p>
+        
+        <div className="game-container">
+
+          <div className="game-board">
+            <Board {...boardProps} />
+          </div>
+
+          <div
+            className="button"
+            onClick={this.resetGame}>
+            Reset
+          </div>
+
+          <div
+            className="button"
+            onClick={this.validate}>
+            Validate
+          </div>
+
+        </div>
 
       </div>
     );
