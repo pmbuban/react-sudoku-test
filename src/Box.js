@@ -19,33 +19,26 @@ class Box extends Component {
 
   handleChange(e) {
     let value = e.currentTarget.value
+    // manage max length since this is a "controlled input"
     if(value.length > 1) value = value[0]
-    console.log('1 - Box/onChange', value, this.props.index)
+    // input can not be 0
+    if(value === '0') value = ''
+
+    // send data back up to Block.js
     this.props.onChange(value, this.props.index)
   }
 
   render() {
-    if(this.props.index.row === 0 && this.props.index.col === 0) {
-      console.log('box/render', this.props)
-    }
-    // console.log('Box/render', this.props.index.row,
-    // this.props.index.col, this.state.value)
-
-    const inputProps = {
-
-    }
-
+    console.log(this.props.value, this.props.disabled)
     return (
       <div
         key={this.props.key}
         className="box-container">
         <input
-          className="box-input"
+          className={`box-input ${this.props.className}`}
           type="number"
-          min={1}
-          max={9}
-          maxLength="1"
           value={this.props.value || ''}
+          disabled={this.props.disabled}
           onChange={(e) => this.handleChange(e)} />
       </div>
     )

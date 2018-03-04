@@ -19,26 +19,34 @@ class Board extends Component {
   }
 
   onChange(value, index) {
-    console.log('2 - Board/onChange', value, index)
+    // send data back up to App.js
     this.props.handleUpdatedBoard(value, index)
   }
 
   generateBoard() {
-    console.log('Board/generateBoard')
+    // create sudoku board based on 2-dimensional array
     const board = this.state.gameBoard
 
+    // process rows
     return board.map((row, i) => {
+      const rowError = this.props.errorRows.includes(i) ? 'error-row' : ''
+
       return (
         <div className="board-row">
           {
+            // add input boxes
             row.map((col, j) => {
+              const colError = this.props.errorCols.includes(j) ? 'error-col' : ''
+
               const blockProps = {
                 key: `row-${i}-col-${j}`,
                 index: {
                   row: i,
                   col: j
                 },
+                disabled: (this.props.originalBoard[i][j] > 0),
                 value: col,
+                className: `${rowError} ${colError}`,
                 onChange: (value, index) => this.onChange(value, index)
               }
 
@@ -51,7 +59,6 @@ class Board extends Component {
   }
 
   render() {
-    console.log('board/render', this.props)
     return (
       <div className="board-container">
         { this.generateBoard() }
