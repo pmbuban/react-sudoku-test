@@ -18,18 +18,20 @@ class Box extends Component {
   }
 
   handleChange(e) {
+    // process and manage input data
     let value = e.currentTarget.value
+
     // manage max length since this is a "controlled input"
     if(value.length > 1) value = value[0]
-    // input can not be 0
-    if(value === '0') value = ''
 
-    // send data back up to Block.js
+    // input can not be 0
+    if(value === '0' || value.toLowerCase() === 'e') value = ''
+
+    // send data back up to parent > Block.js
     this.props.onChange(value, this.props.index)
   }
 
   render() {
-    console.log(this.props.value, this.props.disabled)
     return (
       <div
         key={this.props.key}

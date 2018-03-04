@@ -92,10 +92,9 @@ class App extends Component {
     })
 
     // check for squares by converting 3x3 into rows
-    // NOTE: did not have enough time to
+    // NOTE: did not have enough time to complete 3x3 validation
 
-    console.log('allRowsValid', allRowsValid, errorRowsIndex)
-    console.log('allColumnsValid', allColumnsValid, errorColsIndex)
+    // use these arrays to highlight rows/columns that have duplicate numbers
     this.setState({
       errorRows: errorRowsIndex,
       errorCols: errorColsIndex

@@ -19,7 +19,7 @@ class Board extends Component {
   }
 
   onChange(value, index) {
-    // send data back up to App.js
+    // send data back up to parent > App.js
     this.props.handleUpdatedBoard(value, index)
   }
 

@@ -38,6 +38,7 @@ class App extends Component {
 
   transpose(array) {
     // reverse columns to rows in 2-dimensional array
+    // makes checking for duplicates easier
     // [[a, a],    TO    [[a, b],
     //  [b, b]]           [a, b]]
     return Object.keys(array[0]).map(col => array.map(row => row[col]))
@@ -61,7 +62,7 @@ class App extends Component {
   }
 
   validate() {
-    // valid until duplicates found
+    // all checks are valid until duplicates found
     let allRowsValid = true
     let allColumnsValid = true
     // let allSquaresValid = true
@@ -69,7 +70,7 @@ class App extends Component {
     let errorColsIndex = []
     // let errorSquareIndex = []
 
-    // check rows
+    // check rows for duplicates
     this.state.gameBoard.forEach((row, i) => {
       // check rows
       const duplicates = this.findDuplicates(row)
@@ -81,6 +82,7 @@ class App extends Component {
 
     // transpose two dimensional array
     const transposedArray = this.transpose(this.state.gameBoard)
+
     // check columns via transposed array
     transposedArray.forEach((row, i) => {
       // check rows
@@ -91,11 +93,12 @@ class App extends Component {
       }
     })
 
-    // check for squares by converting 3x3 into rows
-    // NOTE: did not have enough time to
 
-    console.log('allRowsValid', allRowsValid, errorRowsIndex)
-    console.log('allColumnsValid', allColumnsValid, errorColsIndex)
+    // NOTE: The following could not be completed in time
+    // - validate 3x3 squares
+    // - make use of allRowsValid & allColumnsValid in order to produce success message
+    // - could not randomly generate a game board
+
     this.setState({
       errorRows: errorRowsIndex,
       errorCols: errorColsIndex
@@ -153,28 +156,28 @@ class App extends Component {
         </header>
 
         <p className="App-intro">
-          Sudoku using create-react-app
+
+          <div className="game-container">
+
+            <div className="game-board">
+              <Board {...boardProps} />
+            </div>
+
+            <div
+              className="button"
+              onClick={this.resetGame}>
+              Reset
+            </div>
+
+            <div
+              className="button"
+              onClick={this.validate}>
+              Validate
+            </div>
+
+          </div>
         </p>
 
-        <div className="game-container">
-
-          <div className="game-board">
-            <Board {...boardProps} />
-          </div>
-
-          <div
-            className="button"
-            onClick={this.resetGame}>
-            Reset
-          </div>
-
-          <div
-            className="button"
-            onClick={this.validate}>
-            Validate
-          </div>
-
-        </div>
       </div>
     );
   }
