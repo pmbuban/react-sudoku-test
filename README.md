@@ -21,10 +21,10 @@ If any part is taking an unreasonable amount of time, feel free to leave it unfi
 
 
 ## Installation
-- ensure that `node` and `npm` are installed
+- ensure that `node` and `npm` or `yarn` are installed
 - I used `node v9.6.1` & `npm 5.6.0`
-- navigate to the project folder and run `npm install`
-- after installation is complete run `npm start`
+- navigate to the project folder and run `npm install` or `yarn install`
+- after installation is complete run `npm start` or `yarn start`
 - navigate your browser to `http://localhost:3000/`
 - the project is based off of the `create-react-app` repository developed by Facebook
 
